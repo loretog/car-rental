@@ -2,7 +2,7 @@
 <?php element( 'header' ); ?>
 
 <?php 
-	$accounts = $DB->query( "SELECT * FROM users" );
+	$accounts = $DB->query( "SELECT * FROM accounts" );
 ?>
 
 <div class="row">
@@ -20,11 +20,11 @@
                   <th>Phone no.</th>
                    <th>Address </th>
                   <th>
-                    <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?page=add_car">New Car</a>
+                    <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?page=add_account">New Account</a>
                   </th>            
                 </tr>
               </thead>
-              <?php if( $accounts->num_rows ) { ?>
+              <!--<?php if( $accounts->num_rows ) { ?>!-->
               <tbody>
                 <?php while( $account = $accounts->fetch_object() ) : ?>
                 <tr>
@@ -32,8 +32,8 @@
                   <td><?php echo $account->usertype ?></td>
                   <td><?php echo $account->date_created ?></td>
                   <td>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $car->id ?>">Edit</a>
-                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $car->id ?>">Delete</a>
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_users&id=<?php echo $account->id ?>">Edit</a>
+                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_users&id=<?php echo $account->id ?>">Delete</a>
                   </td>
                 </tr>
                 <?php endwhile; ?>

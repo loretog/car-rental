@@ -2,6 +2,6 @@
 <?php element( 'header' ); ?>
 
 
-<h1>Users</h1>
+<h1>Accounts</h1>
 
 <?php element( 'footer' ); ?>

@@ -228,7 +228,7 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=users">
               <i class="menu-icon mdi mdi-television"></i>
-              <span class="menu-title">Users</span>
+              <span class="menu-title">Accounts</span>
             </a>
           </li>
           <li class="nav-item">

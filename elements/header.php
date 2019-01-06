@@ -226,7 +226,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=users">
+            <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=accounts">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Accounts</span>
             </a>
@@ -236,13 +236,7 @@
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Cars</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=reservations">
-              <i class="menu-icon mdi mdi-television"></i>
-              <span class="menu-title">Reservations</span>
-            </a>
-          </li>
+          </li>          
           <li class="nav-item">
             <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=transactions">
               <i class="menu-icon mdi mdi-television"></i>

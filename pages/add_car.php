@@ -1,10 +1,6 @@
 <?php if( ! defined( 'ACCESS' ) ) die( 'DIRECT ACCESS NOT ALLOWED' ); ?>
 <?php element( 'header' ); ?>
 
-<?php 
-	$cars = $DB->query( "SELECT * FROM cars" );  
-?>
-
 <div class="row">
 	  <div class="col-md-12 grid-margin">
 	    <div class="card">
@@ -17,13 +13,55 @@
                 <div class="form-group row">
                   <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Model</label>
                   <div class="col-sm-9">
-                    <input type="text" name="model_name" required class="form-control" id="exampleInputEmail2" placeholder="Model Name">
+                    <input type="text" name="car_model" required class="form-control" id="exampleInputEmail2" placeholder="Model Name">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Plate Number</label>
                   <div class="col-sm-9">
-                    <input type="text" name="plate_number" required class="form-control" id="exampleInputPassword2" placeholder="Plate Number">
+                    <input type="text" name="plate_no" required class="form-control" id="exampleInputPassword2" placeholder="Plate Number">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Capacity</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="capacity" required class="form-control" id="exampleInputPassword2" placeholder="Capacity">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Unit</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="car_unit" required class="form-control" id="exampleInputPassword2" placeholder="Unit">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Color</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="car_color" required class="form-control" id="exampleInputPassword2" placeholder="Plate Number">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Type</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="car_type" required class="form-control" id="exampleInputPassword2" placeholder="Plate Number">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="car_name" required class="form-control" id="exampleInputPassword2" placeholder="Car Name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Price</label>
+                  <div class="col-sm-9">
+                    <input type="number" name="price" required class="form-control" id="exampleInputPassword2" placeholder="Price">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Manufacturer</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="manufacturer" required class="form-control" id="exampleInputPassword2" placeholder="Manufacturer">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</button>

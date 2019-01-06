@@ -14,25 +14,39 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Model</th>
-                  <th>Plate Number</th>
-                  <th>Created</th>
                   <th>
                     <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?page=add_car">New Car</a>
-                  </th>            
+                  </th> 
+                  <th>Model</th>
+                  <th>Plate Number</th>
+                  <th>Capacity</th>
+                  <th>Unit</th>
+                  <th>Color</th>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Manufacturer</th>
+                  <th>Created</th>                            
                 </tr>
               </thead>
               <?php if( $cars->num_rows ) { ?>
               <tbody>
                 <?php while( $car = $cars->fetch_object() ) : ?>
                 <tr>
-                  <td><?php echo $car->model_name ?></td>
-                  <td><?php echo $car->plate_number ?></td>
-                  <td><?php echo $car->created ?></td>
                   <td>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $car->id ?>">Edit</a>
-                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $car->id ?>">Delete</a>
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $car->car_id ?>">Edit</a>
+                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $car->car_id ?>">Delete</a>
                   </td>
+                  <td><?php echo $car->car_model ?></td>
+                  <td><?php echo $car->plate_no ?></td>
+                  <td><?php echo $car->capacity ?></td>
+                  <td><?php echo $car->car_unit ?></td>
+                  <td><?php echo $car->car_color ?></td>
+                  <td><?php echo $car->car_type ?></td>
+                  <td><?php echo $car->car_name ?></td>
+                  <td><?php echo $car->price ?></td>
+                  <td><?php echo $car->manufacturer; ?></td>
+                  <td><?php echo $car->created ?></td>                  
                 </tr>
                 <?php endwhile; ?>
               </tbody>

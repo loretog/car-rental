@@ -33,6 +33,11 @@
                   <td>
                     <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_account&id=<?php echo $account->user_id ?>">Edit</a>
                     <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_account&id=<?php echo $account->user_id ?>">Delete</a>
+                    <?php if( $account->active && $account->active == 1 ) : ?>
+                      <a class="btn btn-warning btn-xs" href="<?php echo SITE_URL ?>/?action=activate_account&id=<?php echo $account->user_id ?>&active=0">Deactivate</a>
+                    <?php else : ?>
+                      <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?action=activate_account&id=<?php echo $account->user_id ?>&active=1">Activate</a>
+                    <?php endif; ?>
                   </td>
                   <td><?php echo $account->username ?></td>                  
                   <td><?php echo $account->first_name ?></td>

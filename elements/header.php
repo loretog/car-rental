@@ -238,6 +238,12 @@
             </a>
           </li>          
           <li class="nav-item">
+            <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=reserve_cars">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Reserve Cars</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php  echo SITE_URL; ?>/?page=transactions">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Transactions</span>

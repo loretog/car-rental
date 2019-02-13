@@ -2,7 +2,8 @@
 <?php element( 'header' ); ?>
 
 <?php 
-	$transactions = $DB->query( "SELECT T.id AS transaction_id, T.transaction_no, T.payment_info, T.payment_status, U.username FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.id" );
+	$transactions = $DB->query( "SELECT T.trans_id, T.transaction_no, T.payment_info, T.payment_status, U.username FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.id" );
+  
 ?>
 
 <div class="row">
@@ -23,7 +24,7 @@
                   </th>            
                 </tr>
               </thead>
-              <?php if( $transactions->num_rows ) { ?>
+              <?php if( $transactions && $transactions->num_rows ) { ?>
               <tbody>
                 <?php while( $transaction = $transactions->fetch_object() ) : ?>
                 <tr>
@@ -32,8 +33,8 @@
                   <td><?php echo $transaction->payment_info ?></td>
                   <td><?php echo $transaction->payment_status ?></td>
                   <td>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $transaction->transaction_id ?>">Edit</a>
-                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $transaction->transaction_id ?>">Delete</a>
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $transaction->trans_id ?>">Edit</a>
+                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $transaction->trans_id ?>">Delete</a>
                   </td>
                 </tr>
                 <?php endwhile; ?>

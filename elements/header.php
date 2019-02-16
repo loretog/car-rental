@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/star-admin/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo SITE_URL ?>/assets/star-admin/images/favicon.png" />
+  <script type="text/javascript" src="<?php echo SITE_URL ?>/assets/js/jquery-3.3.1.min.js"></script>  
 </head>
 
 <body>

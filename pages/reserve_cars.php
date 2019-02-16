@@ -20,33 +20,27 @@
 	    <div class="card">
 	      <div class="card-body">
 	        <h1>Reserve Cars</h1>
-          <form method="post">
-            Pickup: <input type="date" name="pick_up_date" value="<?php echo $pick_up_date ?>"><br>
-            Return: <input type="date" name="return_date" value="<?php echo $return_date ?>"><br>
-            <br>
-            <input type="submit" name="" value="Search">
-          </form>  
-
-
-<!-- PAYPAL BUTTON -->
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="5K5FYVNWJ5R3W">
-<table>
-<tr><td><input type="hidden" name="on0" value="Total Amount">Total Amount</td></tr><tr><td><input type="text" name="os0" maxlength="200" value="200"></td></tr>
-</table>
-<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-<!-- /PAYPAL BUTTON -->
-
-     
+          <div class="row">
+          <div class="col-md-4">
+            <form method="post">
+              <div class="form-group">
+                Pickup: <input class="form-control form-inline" type="date" name="pick_up_date" value="<?php echo $pick_up_date ?>">
+                Return: <input class="form-control form-inline" type="date" name="return_date" value="<?php echo $return_date ?>">
+              </div>
+              <div class="form-group">
+                <input class="btn btn-primary btn-xs form-control" type="submit" name="" value="Search">
+              </div>
+            </form>
+          </div>
+        </div>
+        <form method="post" action="<?php echo SITE_URL ?>/?page=reservation_summary">
+          <input type="submit" class="btn btn-success btn-xs" value="Reserve Cars">
 	        <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>
-                    <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?page=add_car">New Car</a>
+                    
                   </th> 
                   <th>Model</th>
                   <th>Plate Number</th>
@@ -65,8 +59,7 @@
                 <?php while( $car = $cars->fetch_object() ) : ?>
                 <tr>
                   <td>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $car->car_id ?>">Edit</a>
-                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $car->car_id ?>">Delete</a>
+                    <input class="car_items" type="checkbox" name="car_items[]" value="<?php echo $car->car_id ?>">
                   </td>
                   <td><?php echo $car->car_model ?></td>
                   <td><?php echo $car->plate_no ?></td>
@@ -93,10 +86,22 @@
               
             </table>
           </div>
-
+        </form>
 	      </div>
 	    </div>
 	  </div>
 	</div>
+
+  <!-- PAYPAL BUTTON -->
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="5K5FYVNWJ5R3W">
+<table>
+<tr><td><input type="hidden" name="on0" value="Total Amount">Total Amount</td></tr><tr><td><input type="text" name="os0" maxlength="200" value="200"></td></tr>
+</table>
+<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<!-- /PAYPAL BUTTON -->
 
 <?php element( 'footer' ); ?>

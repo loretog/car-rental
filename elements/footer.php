@@ -32,6 +32,9 @@
   <!-- Custom js for this page-->
   <script src="<?php echo SITE_URL ?>/assets/star-admin/js/dashboard.js"></script>
   <!-- End custom js for this page-->
+
+  <!-- custom js scripts (global) -->
+  <script src="<?php echo SITE_URL ?>/assets/js/script.js"></script>
 </body>
 
 </html>

@@ -7,10 +7,13 @@
 		if( isset( $page ) && !empty( $page ) ) {										
 			if( array_search( $page, $restricted_pages ) !== FALSE ) {							
 				if( !isset( $_SESSION[ AUTH_ID ] ) && empty( $_SESSION[ AUTH_ID ] ) ) {
-					$_SESSION[ 'MESSAGE' ] = "Page is restricted.";
-					header( "Location: " . SITE_URL . "/?page=login" );
-					exit;
-				}			
+					$_SESSION[ 'MESSAGE' ] = "Page is restricted, need to login to access.";
+					redirect( "login" );					
+				} else {
+					$_SESSION[ 'MESSAGE' ] = "Page <strong>$page</strong> is restricted.";
+					redirect();
+				}	
+				exit;	
 			}
 		}
 	}

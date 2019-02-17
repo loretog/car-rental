@@ -9,39 +9,55 @@
     seller - loreto.gabawa.jr.car.rental@gmail.com
   */
 
-  $pick_up_date = isset( $_POST[ 'pick_up_date' ] ) ? $_POST[ 'pick_up_date' ] : date( "Y-m-d" );
+  $pickup_date = isset( $_POST[ 'pickup_date' ] ) ? $_POST[ 'pickup_date' ] : date( "Y-m-d" );
   $return_date = isset( $_POST[ 'return_date' ] ) ? $_POST[ 'return_date' ] : date( "Y-m-d" );
-  $q = "SELECT * FROM cars WHERE car_id NOT IN (SELECT C.car_id FROM car_trans AS CT RIGHT JOIN cars AS C ON CT.car_id=C.car_id WHERE (CT.pick_up_date BETWEEN '$pick_up_date' AND '$return_date' ) OR (CT.return_date BETWEEN '$pick_up_date' AND '$return_date'))";  
+
+  $pickup_time = isset( $_POST[ 'pickup_time' ] ) ? $_POST[ 'pickup_time' ] : "08:00";
+  $return_time = isset( $_POST[ 'return_time' ] ) ? $_POST[ 'return_time' ] : "17:00";
+  $q = "SELECT * FROM cars WHERE car_id NOT IN (SELECT C.car_id FROM car_trans AS CT RIGHT JOIN cars AS C ON CT.car_id=C.car_id WHERE (CT.pick_up_date BETWEEN '$pickup_date' AND '$return_date' ) OR (CT.return_date BETWEEN '$pickup_date' AND '$return_date'))";  
 	$cars = $DB->query( $q );
 ?>
 
 <div class="row">
 	  <div class="col-md-12 grid-margin">
 	    <div class="card">
-	      <div class="card-body">
+	      <div class="card-body" style="min-height: 600px;">
 	        <h1>Reserve Cars</h1>
-          <div class="row">
-          <div class="col-md-4">
-            <form method="post">
-              <div class="form-group">
-                Pickup: <input class="form-control form-inline" type="date" name="pick_up_date" value="<?php echo $pick_up_date ?>">
-                Return: <input class="form-control form-inline" type="date" name="return_date" value="<?php echo $return_date ?>">
+          <form method="post">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="form-group">
+                  Pickup Date: <input class="form-control form-inline" type="date" name="pickup_date" value="<?php echo $pickup_date ?>">
+                  Return Date: <input class="form-control form-inline" type="date" name="return_date" value="<?php echo $return_date ?>">
+                </div>
               </div>
-              <div class="form-group">
-                <input class="btn btn-primary btn-xs form-control" type="submit" name="" value="Search">
+              <div class="col-md-2">
+                <div class="form-group">
+                  Pickup Time: <input class="form-control form-inline" type="time" name="pickup_time" value="08:00">
+                  Return Time: <input class="form-control form-inline" type="time" name="return_time" value="17:00">
+                </div>
               </div>
-            </form>
-          </div>
-        </div>
-        <form method="post" action="<?php echo SITE_URL ?>/?page=reservation_summary">
-          <input type="submit" class="btn btn-success btn-xs" value="Reserve Cars">
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input class="btn btn-primary btn-xs form-control" type="submit" name="" value="Search">
+                </div>
+              </div>
+            </div>
+          </form>
+
+        <form class="reserve_cars_form" method="post" action="<?php echo SITE_URL ?>/?page=reservation_summary">
+          <input type="submit" class="btn btn-success btn-xs reserve_cars" value="Reserve Cars"> <span class="message"></span>
+          <input type="hidden" name="pickup_date" value="<?php echo $pickup_date ?>">
+          <input type="hidden" name="return_date" value="<?php echo $return_date ?>">
+          <input type="hidden" name="pickup_time" value="<?php echo $pickup_time ?>">
+          <input type="hidden" name="return_time" value="<?php echo $return_time ?>">
 	        <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>
-                    
-                  </th> 
+                  <th></th> 
                   <th>Model</th>
                   <th>Plate Number</th>
                   <th>Capacity</th>
@@ -68,7 +84,7 @@
                   <td><?php echo $car->car_color ?></td>
                   <td><?php echo $car->car_type ?></td>
                   <td><?php echo $car->car_name ?></td>
-                  <td><?php echo $car->price ?></td>
+                  <td><?php echo CURRENCY . " " . number_format( $car->price ) ?></td>
                   <td><?php echo $car->manufacturer; ?></td>
                   <td><?php echo $car->created ?></td>                  
                 </tr>
@@ -77,8 +93,8 @@
               <?php } else { ?>
             	<tbody>
             		<tr>
-            			<td colspan="3">
-            				No records yet
+            			<td colspan="11">
+            				<h3>No cars on the selected dates.</h3>
             			</td>
             		</tr>
             	</tbody>
@@ -91,17 +107,5 @@
 	    </div>
 	  </div>
 	</div>
-
-  <!-- PAYPAL BUTTON -->
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="5K5FYVNWJ5R3W">
-<table>
-<tr><td><input type="hidden" name="on0" value="Total Amount">Total Amount</td></tr><tr><td><input type="text" name="os0" maxlength="200" value="200"></td></tr>
-</table>
-<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-<!-- /PAYPAL BUTTON -->
 
 <?php element( 'footer' ); ?>

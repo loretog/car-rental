@@ -2,7 +2,7 @@
 <?php element( 'header' ); ?>
 
 <?php 
-	$transactions = $DB->query( "SELECT T.trans_id, T.transaction_no, T.payment_info, T.payment_status, U.username FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.id" );
+	$transactions = $DB->query( "SELECT T.trans_id, T.transaction_no, T.payment_info, T.total_amount, T.created, U.username, U.first_name, U.last_name FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.user_id ORDER BY T.created DESC" );
   
 ?>
 
@@ -16,11 +16,11 @@
               <thead>
                 <tr>
                   <th>Customer</th>
-                  <th>Transaction No.</th>
-                  <th>Payment Info</th>
-                  <th>Payment Status</th>
+                  <th>Transaction No.</th>                  
+                  <th>Total Amount</th>
+                  <th>Created</th>
                   <th>
-                    <a class="btn btn-success btn-xs" href="<?php echo SITE_URL ?>/?page=add_car">New Transactions</a>
+                   
                   </th>            
                 </tr>
               </thead>
@@ -28,13 +28,12 @@
               <tbody>
                 <?php while( $transaction = $transactions->fetch_object() ) : ?>
                 <tr>
-                  <td><?php echo $transaction->username ?></td>
-                  <td><?php echo $transaction->transaction_no ?></td>
-                  <td><?php echo $transaction->payment_info ?></td>
-                  <td><?php echo $transaction->payment_status ?></td>
+                  <td><?php echo $transaction->first_name . " " . $transaction->last_name ?></td>
+                  <td><?php echo strtoupper( $transaction->transaction_no ) ?></td>                  
+                  <td><?php echo CURRENCY . " " . number_format( $transaction->total_amount ) ?></td>
+                  <td><?php echo $transaction->created ?></td>
                   <td>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $transaction->trans_id ?>">Edit</a>
-                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $transaction->trans_id ?>">Delete</a>
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=view_transaction&id=<?php echo $transaction->trans_id ?>">View</a>
                   </td>
                 </tr>
                 <?php endwhile; ?>

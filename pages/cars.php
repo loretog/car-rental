@@ -44,7 +44,7 @@
                   <td><?php echo $car->car_color ?></td>
                   <td><?php echo $car->car_type ?></td>
                   <td><?php echo $car->car_name ?></td>
-                  <td><?php echo $car->price ?></td>
+                  <td><?php echo CURRENCY . " " . number_format( $car->price ) ?></td>
                   <td><?php echo $car->manufacturer; ?></td>
                   <td><?php echo $car->created ?></td>                  
                 </tr>

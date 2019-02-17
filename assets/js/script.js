@@ -40,4 +40,11 @@ jQuery(function($) {
 		
 		console.log( y.getUTCFullYear() );	
 	});
+
+	$( ".reserve_cars_form" ).submit(function() {
+		if( $( ".car_items:checked" ).length == 0 ) {
+			$( ".message" ).html( "Please select at least one car." );
+			return false;
+		}
+	});
 });

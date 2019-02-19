@@ -256,7 +256,7 @@
               <span class="menu-title">Logout</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
               <span class="menu-title">Basic UI Elements</span>
@@ -322,7 +322,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- partial -->

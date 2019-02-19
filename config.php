@@ -19,12 +19,13 @@ define( 'AUTH_NAME', 'username' );
 define( 'AUTH_TYPE', 'usertype' );
 
 $restricted_pages_admin = [];
-$restricted_pages_customer = [ "accounts", "transactions", "cars" ];
+$restricted_pages_customer = [ "accounts", "transactions", "cars", "add_car", "edit_car" ];
+$menu_pages = [ "dashboard", "accounts", "cars", "reserve cars", "transactions", "logout" ];
 
 $restricted_pages = null;
 if( isset( $_SESSION[ AUTH_TYPE ] ) ) {
 	$res = "restricted_pages_" . $_SESSION[ AUTH_TYPE ];
 	$restricted_pages = $$res;	
 } else {
-	$restricted_pages = [ "default", "transactions" ];
+	$restricted_pages = [ "default", "transactions", "accounts", "cars", "add_car", "edit_car" ];
 }

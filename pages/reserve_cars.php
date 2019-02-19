@@ -21,7 +21,7 @@
 <div class="row">
 	  <div class="col-md-12 grid-margin">
 	    <div class="card">
-	      <div class="card-body" style="min-height: 600px;">
+	      <div class="card-body">
 	        <h1>Reserve Cars</h1>
           <form method="post">
             <div class="row">
@@ -47,13 +47,55 @@
             </div>
           </form>
 
+          </div>
+      </div>
+
         <form class="reserve_cars_form" method="post" action="<?php echo SITE_URL ?>/?page=reservation_summary">
-          <input type="submit" class="btn btn-success btn-xs reserve_cars" value="Reserve Cars"> <span class="message"></span>
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <input type="submit" class="btn btn-success btn-xs reserve_cars" value="Reserve Cars"> <span class="message"></span>
+                </div>
+              </div>
+            </div>
+          </div>
           <input type="hidden" name="pickup_date" value="<?php echo $pickup_date ?>">
           <input type="hidden" name="return_date" value="<?php echo $return_date ?>">
           <input type="hidden" name="pickup_time" value="<?php echo $pickup_time ?>">
           <input type="hidden" name="return_time" value="<?php echo $return_time ?>">
-	        <div class="table-responsive">
+
+          <?php if( $cars->num_rows ) : ?>
+            <div class="row">
+            <?php while( $car = $cars->fetch_object() ) : ?>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <div class="card card-statistics">
+                  <div class="card-body">
+                    <?php echo $car->car_model ?>
+                    <div class="clearfix">
+                      <div class="float-left">
+                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                      </div>
+                      <div class="float-right">
+                        <p class="mb-0 text-right">Price</p>
+                        <div class="fluid-container">
+                          <h3 class="font-weight-medium text-right mb-0"><?php echo CURRENCY . " " . number_format( $car->price ) ?></h3>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                      <!-- <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth -->
+                      <input class="car_items" type="checkbox" name="car_items[]" value="<?php echo $car->car_id ?>"> Select Car
+                    </p>                    
+                  </div>
+                </div>
+              </div>
+            <?php endwhile; ?>
+            </div>
+          <?php else: ?>
+          <?php endif; ?>
+          
+	        <!-- <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -101,10 +143,9 @@
               <?php } ?>
               
             </table>
-          </div>
+          </div> -->
         </form>
-	      </div>
-	    </div>
+	      
 	  </div>
 	</div>
 

@@ -60,11 +60,55 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group d-flex justify-content-center">
-                  <div class="form-check form-check-flat mt-0">
-                    <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" checked> I agree to the terms
-                    </label>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Email Address">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="phoneno" class="form-control" placeholder="Phone or Contact Number">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <textarea name="address" class="form-control" placeholder="Physical or Mailing Address"></textarea>
+                    <input type="text" class="form-control" placeholder="Phone or Contact Number">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">

@@ -29,10 +29,11 @@
           <div class="col-lg-4 mx-auto">
             <h2 class="text-center mb-4">Register</h2>
             <div class="auto-form-wrapper">
-              <form action="#">
+              <form method="post">
+                <input type="hidden" name="action" value="save_account">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -42,7 +43,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -62,7 +63,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="email" class="form-control" placeholder="Email Address">
+                    <input type="email" class="form-control" placeholder="Email Address" name="email">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -72,7 +73,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -82,7 +83,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                    <input type="text" name="middle_name" class="form-control" placeholder="Middle Name">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -92,7 +93,17 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="phoneno" class="form-control" placeholder="Phone or Contact Number">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Phone or Contact Number">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>

@@ -8,7 +8,8 @@
 	$last_name = $_POST[ 'last_name' ];
 	$phone_no = $_POST[ 'phone_no' ];
 	$address = $_POST[ 'address' ];	
-	$usertype = $_POST[ 'usertype' ];
+	$usertype = isset( $_POST[ 'usertype' ] ) ? $_POST[ 'usertype' ] : 'customer';
+	$redirect = isset( $_REQUEST[ "redirect" ] ) ? $_REQUEST[ "redirect" ] : 'accounts';
 
 	if( isset( $_POST[ 'user_id' ] ) ) {
 		$id = $_POST[ 'user_id' ];
@@ -16,4 +17,4 @@
 	} else {
 		$DB->query( "INSERT INTO users (username, password, email, first_name, middle_name, last_name, phone_no, address, usertype, date_created ) VALUES( '$username', '$password', '$email', '$first_name', '$middle_name', '$last_name', '$phone_no', '$address', '$usertype', NOW() )" );
 	}
-	redirect( "accounts" );
+	redirect( $redirect );

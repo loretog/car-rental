@@ -29,8 +29,10 @@
           <div class="col-lg-4 mx-auto">
             <h2 class="text-center mb-4">Register</h2>
             <div class="auto-form-wrapper">
+              <?php echo element( "message" ); ?>
               <form method="post">
-                <input type="hidden" name="action" value="save_account">
+                <input type="hidden" name="action" value="register_account">
+                <input type="hidden" name="redirect" value="register">
                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Username" name="username">
@@ -103,7 +105,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="phone_no" class="form-control" placeholder="Phone or Contact Number">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Phone Number">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -113,15 +115,14 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <textarea name="address" class="form-control" placeholder="Physical or Mailing Address"></textarea>
-                    <input type="text" class="form-control" placeholder="Phone or Contact Number">
+                    <input type="text" name="address" class="form-control" placeholder="Home Address">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
                       </span>
                     </div>
                   </div>
-                </div>
+                </div>              
                 <div class="form-group">
                   <button class="btn btn-primary submit-btn btn-block">Register</button>
                 </div>

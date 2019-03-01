@@ -2,7 +2,7 @@
 <?php element( 'header' ); ?>
 
 <?php 
-  var_dump($_SESSION);
+  if( $_SESSION[ AUTH_TYPE ] == "admin" ) :
   $accounts = $DB->query( "SELECT * FROM users" );
 ?>
 
@@ -67,5 +67,125 @@
       </div>
     </div>
   </div>
+
+  <?php else : ?>
+  <!-- <div class="container-scroller"> -->
+    <!-- <div class="container-fluid page-body-wrapper full-page-wrapper auth-page"> -->
+      <!-- <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one"> -->
+        <div class="row w-100">
+          <div class="col-lg-4 mx-auto">
+            <div class="card">
+              <div class="card-body">
+            <h2 class="text-center mb-4">Register</h2>
+            <div class="auto-form-wrapper">
+              <?php echo element( "message" ); ?>
+              <form method="post">
+                <input type="hidden" name="action" value="register_account">              
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Email Address" name="email">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="middle_name" class="form-control" placeholder="Middle Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Phone Number">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="address" class="form-control" placeholder="Home Address">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>              
+                <div class="form-group">
+                  <button class="btn btn-primary submit-btn btn-block">Update</button>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      <!-- </div> -->
+      <!-- content-wrapper ends -->
+    <!-- </div> -->
+    <!-- page-body-wrapper ends -->
+  <!-- </div> -->
+  <?php endif; ?>
 
 <?php element( 'footer' ); ?>

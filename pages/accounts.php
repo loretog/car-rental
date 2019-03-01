@@ -2,6 +2,7 @@
 <?php element( 'header' ); ?>
 
 <?php 
+  var_dump($_SESSION);
   $accounts = $DB->query( "SELECT * FROM users" );
 ?>
 

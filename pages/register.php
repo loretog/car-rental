@@ -31,8 +31,7 @@
             <div class="auto-form-wrapper">
               <?php echo element( "message" ); ?>
               <form method="post">
-                <input type="hidden" name="action" value="register_account">
-                <input type="hidden" name="redirect" value="register">
+                <input type="hidden" name="action" value="register_account">              
                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Username" name="username">

@@ -13,7 +13,7 @@
 			$_SESSION[ 'MESSAGE' ] = "Welcome back!";
 			redirect();
 		} else {
-			$_SESSION[ 'MESSAGE' ] = "Need to confirm and activate account.";
+			$_SESSION[ 'MESSAGE' ] = "Need to confirm and activate account. You can ented the activate code <a href='" . SITE_URL . "/?page=activate_account'>here.</a>";
 		}		
 	} else {
 		$_SESSION[ 'MESSAGE' ] = "failed";

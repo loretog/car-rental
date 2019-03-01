@@ -1,5 +1,4 @@
-<?php
-
+<?php  
  function generate_code() {
     $string = '';
     $random_string_length = 5;
@@ -16,7 +15,7 @@
   // Visit www.itexmo.com/developers.php for more info about this API
   //##########################################################################
   $api    = "TR-ABEGA316590_3WAAN";
-  function itexmo($number,$message,$apicode){
+  function itexmo($number,$message,$apicode) {
     $url = 'https://www.itexmo.com/php_api/api.php';    
     $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
     $param = array(
@@ -40,13 +39,20 @@
   $phone_no = $_POST[ 'phone_no' ];
   $address = $_POST[ 'address' ]; 
   $usertype = isset( $_POST[ 'usertype' ] ) ? $_POST[ 'usertype' ] : 'customer';
+  $token = generate_code();
   $redirect = isset( $_REQUEST[ "redirect" ] ) ? $_REQUEST[ "redirect" ] : 'accounts';
 
 
-  if( $DB->query( "INSERT INTO users (username, password, email, first_name, middle_name, last_name, phone_no, address, usertype, date_created ) VALUES( '$username', '$password', '$email', '$first_name', '$middle_name', '$last_name', '$phone_no', '$address', '$usertype', NOW() )" ) ) {
-    $code = generate_code();
-    $message = "Car Rental.\nThank you for your registration. \nTo activate your account, please follow this link: <a href='" . SITE_URL . "/?page=activate_account&code=" . md5( $code ) . "'>" . SITE_URL . "/?page=activate_account&code=" . md5( $code ) . "</a>";
+  $success = $DB->query( "INSERT INTO users (username, password, email, first_name, middle_name, last_name, phone_no, address, usertype, date_created, token ) VALUES( '$username', '$password', '$email', '$first_name', '$middle_name', '$last_name', '$phone_no', '$address', '$usertype', NOW(), '$token' )" );
+  
+  if( $success ) {
 
+    /*$message = "Car Rental.\nThank you for your registration. \nTo activate your account, please follow this link: <a href='" . SITE_URL . "/?action=activate_registgration&email=$email&code=" . md5( $token ) . "'>" . SITE_URL . "/?page=activate_registgration&email=$email&code=" . md5( $token ) . "</a>";
+    // SEND EMAIL
+
+    mail( $email, "Car Rental Registration", $message);
+    // SEND TEXT
+    $message = "Car Rental.\nThank you for your registration. \nTo activate your account, please enter this code: $token.";
     $result = itexmo( $phone_no, $message, $api );
     if ( $result == "" ) {
       echo "iTexMo: No response from server!!!
@@ -56,5 +62,9 @@
       echo "Message Sent!";
     } else { 
       echo "Error Num ". $result . " was encountered!";
-    }
+    }*/
+
+    redirect( "activate_account" );
+  } else {
+    set_message( "Something went wrong. Please try again." );
   }

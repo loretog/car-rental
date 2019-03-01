@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Register</title>
+  <title>Activate</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/star-admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/star-admin/vendors/css/vendor.bundle.base.css">
@@ -27,14 +27,24 @@
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
-            <h2 class="text-center mb-4">Activate</h2>
+            <h2 class="text-center mb-4">Activate</h2>            
             <div class="auto-form-wrapper">
+              <p>Please enter the code sent to your Phone or click the link sent in your email.</p>
               <form method="post">
-                <input type="hidden" name="action" value="save_account">
-                <input type="hidden" name="redirect" value="register">
+                <input type="hidden" name="action" value="activate_registration">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Enter your Email Address" name="email">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter your Activation Code" name="code">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -43,7 +53,7 @@
                   </div>
                 </div>            
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Register</button>
+                  <button class="btn btn-primary submit-btn btn-block">Activate</button>
                 </div>
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">Already have an account ?</span>

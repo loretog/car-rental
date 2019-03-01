@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
+  <title>Car Rental</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/star-admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo SITE_URL ?>/assets/star-admin/vendors/css/vendor.bundle.base.css">

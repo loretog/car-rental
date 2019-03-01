@@ -19,7 +19,7 @@ define( 'AUTH_NAME', 'username' );
 define( 'AUTH_TYPE', 'usertype' );
 
 $restricted_pages_admin = [];
-$restricted_pages_customer = [ "accounts", "transactions", "cars", "add_car", "edit_car" ];
+$restricted_pages_customer = [ "transactions", "cars", "add_car", "edit_car" ];
 $restricted_pages = [ "default", "transactions", "accounts", "cars", "add_car", "edit_car", "reserve_cars", "reservation_summary" ];
 $menu_pages = [ "dashboard", "accounts", "cars", "reserve cars", "transactions", "logout" ];
 

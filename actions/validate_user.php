@@ -9,6 +9,9 @@
 			$_SESSION[ AUTH_ID ] = $user->user_id;
 			$_SESSION[ AUTH_NAME ] = $user->username;
 			$_SESSION[ AUTH_TYPE ] = $user->usertype;
+			$_SESSION[ 'last_name' ] = $user->last_name;
+			$_SESSION[ 'first_name' ] = $user->first_name;
+			$_SESSION[ 'phone_no' ] = $user->phone_no;
 			
 			$_SESSION[ 'MESSAGE' ] = "Welcome back!";
 			redirect();

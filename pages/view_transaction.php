@@ -37,8 +37,20 @@
                   <td>
                     <?php 
                     	$info = json_decode( $transaction->payment_info );
-                    	var_dump($info);
-                    	var_dump($transaction->payment_info);
+                    	var_dump($info['payer_email']);
+                    	//var_dump((object)$transaction->payment_info);
+
+                    	/*$jsonIterator = new RecursiveIteratorIterator(
+									    new RecursiveArrayIterator(json_decode($transaction->payment_info, TRUE)),
+									    RecursiveIteratorIterator::SELF_FIRST);
+
+									foreach ($jsonIterator as $key => $val) {
+									    if(is_array($val)) {
+									        echo "$key:\n";
+									    } else {
+									        echo "$key => $val\n";
+									    }
+									}*/						
                 	?>
                   </td>
                 </tr>              
@@ -59,24 +71,33 @@
           	<?php
           		$car_trans = $DB->query( "SELECT * FROM car_trans AS CT LEFT JOIN cars AS C ON CT.car_id=C.car_id WHERE CT.trans_id = $id" );
           	?>
+          	<hr>
           	<h2>Cars Rented</h2>
           	<div class="table-responsive">
 	            <table class="table table-hover">
 	              <thead>
 	                <tr>
-	                  <th>Customer</th>
-	                  <th>Transaction No.</th>                  
-	                  <th>Total Amount</th>
-	                  <th>Created</th>
-	                  <th>
-	                   
-	                  </th>            
+	                  <th>Car</th>
+	                  <th>Pickup</th>                  
+	                  <th>Return</th>
+	                  <th>Price</th>	                             
 	                </tr>
 	              </thead>
+	              <?php if( $car_trans->num_rows ) : ?>
 	              <tbody>
-	              	
-	              </tbody>
+              		<?php while( $car_tran = $car_trans->fetch_object() ) : ?>
+              			<tr>
+              				<td><?php echo $car_tran->car_model ?></td>
+			              	<td><?php echo $car_tran->pick_up_date . " " . $car_tran->pick_up_time ?></td>
+			              	<td><?php echo $car_tran->return_date . " " . $car_tran->return_time ?></td>
+			              	<td><?php echo CURRENCY . " " . $car_tran->total_price ?></td>
+              			</tr>	              	
+	              	<?php endwhile; ?>
+				  </tbody>
+          		  <?php endif; ?>
 	          	</table>
+	          	<hr>
+	          	<a href="<?php echo SITE_URL ?>/?page=transactions"></a>
       		</div>
 	      </div>
 	    </div>

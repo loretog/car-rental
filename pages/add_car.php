@@ -8,7 +8,7 @@
 	        <h1>New Car</h1>          
           <div class="card">
             <div class="card-body">              
-              <form class="forms-sample" method="post">
+              <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="add_car">
                 <div class="form-group row">
                   <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Model</label>

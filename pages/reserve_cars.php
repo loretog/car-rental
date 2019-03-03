@@ -101,6 +101,7 @@
             <?php endwhile; ?>
             </div>
           <?php else: ?>
+            <h2>No available cars</h2>
           <?php endif; ?>
           
 	        <!-- <div class="table-responsive">

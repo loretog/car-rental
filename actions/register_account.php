@@ -43,11 +43,11 @@
   $redirect = isset( $_REQUEST[ "redirect" ] ) ? $_REQUEST[ "redirect" ] : 'accounts';
 
 
-  $success = $DB->query( "INSERT INTO users (username, password, email, first_name, middle_name, last_name, phone_no, address, usertype, date_created, token ) VALUES( '$username', '$password', '$email', '$first_name', '$middle_name', '$last_name', '$phone_no', '$address', '$usertype', NOW(), '$token' )" );
+  $success = $DB->query( "INSERT INTO users (username, password, email, first_name, middle_name, last_name, phone_no, address, usertype, date_created, token ) VALUES( '$username', '$password', '$email', '$first_name', '$middle_name', '$last_name', '$phone_no', '$address', '$usertype', NOW(), '$token ' )" );
   
   if( $success ) {
 
-    /*$message = "Car Rental.\nThank you for your registration. \nTo activate your account, please follow this link: <a href='" . SITE_URL . "/?action=activate_registgration&email=$email&code=" . md5( $token ) . "'>" . SITE_URL . "/?page=activate_registgration&email=$email&code=" . md5( $token ) . "</a>";
+    $message = "Car Rental.\nThank you for your registration. \nTo activate your account, please follow this link: <a href='" . SITE_URL . "/?action=activate_registration&email=$email&code=" . $token . "'>" . SITE_URL . "/?action=activate_registration&email=$email&code=" . $token . "</a>";
     // SEND EMAIL
 
     mail( $email, "Car Rental Registration", $message);
@@ -62,7 +62,7 @@
       echo "Message Sent!";
     } else { 
       echo "Error Num ". $result . " was encountered!";
-    }*/
+    }
 
     redirect( "activate_account" );
   } else {

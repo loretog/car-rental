@@ -23,7 +23,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Capacity</label>
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Capacity (Seats)</label>
                   <div class="col-sm-9">
                     <input type="text" name="capacity" required class="form-control" id="exampleInputPassword2" placeholder="Capacity">
                   </div>
@@ -67,7 +67,7 @@
                 <div class="form-group row">
                   <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Image</label>
                   <div class="col-sm-9">
-                    <input type="file" name="car_image" required class="form-control" placeholder="Select an image for the car.">
+                    <input type="file" name="car_image" class="form-control" placeholder="Select an image for the car.">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</button>

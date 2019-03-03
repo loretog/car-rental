@@ -7,6 +7,10 @@
     PAYPAL SANDBOX PAYMENT BUTTON - https://developer.paypal.com/docs/classic/paypal-payments-standard/ht_test-pps-buttons/
     buyer - loreto.gabawa.jr.sandbox@gmail.com
     seller - loreto.gabawa.jr.car.rental@gmail.com
+
+    Panchoo001
+    car.rental.buyer@gmail.com
+    can.rental.merchan@gmail.com
   */
 
   $pickup_date = isset( $_POST[ 'pickup_date' ] ) ? $_POST[ 'pickup_date' ] : date( "Y-m-d" );
@@ -75,9 +79,10 @@
                 <div class="card card-statistics">
                   <div class="card-body">
                     <?php echo $car->car_model ?>
-                    <div class="clearfix">
+                    <div style="background-image: url(<?php echo SITE_URL ?>/assets/images/<?php echo $car->image ?>); background-size: 100%; width: 100%; height: 150px;"></div>
+                    <div class="clearfix">                      
                       <div class="float-left">
-                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                        <!-- <i class="mdi mdi-cube text-danger icon-lg"></i> -->
                       </div>
                       <div class="float-right">
                         <p class="mb-0 text-right">Price</p>

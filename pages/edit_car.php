@@ -19,7 +19,7 @@
 	        <h1>Edit Car</h1>          
           <div class="card">
             <div class="card-body">              
-              <form class="forms-sample" method="post">
+              <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="add_car">
                 <input type="hidden" name="id" value="<?php echo $id ?>">
                 <div class="form-group row">
@@ -75,6 +75,13 @@
                   <div class="col-sm-9">
                     <input type="text" name="manufacturer" required class="form-control" id="exampleInputPassword2" placeholder="Manufacturer" value="<?php echo $car->manufacturer ?>">
                   </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Image</label>
+                  <div class="col-sm-9">
+                    <input type="file" name="car_image" required class="form-control" placeholder="Select an image for the car.">
+                  </div>
+                  <img src="assets/images/<?php echo $car->image ?>">
                 </div>
                 <button type="submit" class="btn btn-success mr-2">Submit</button>
                 <a class="btn btn-light" href="<?php echo SITE_URL ?>/?page=cars">Cancel</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2019 at 04:25 AM
+-- Generation Time: Mar 03, 2019 at 09:06 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -39,6 +39,7 @@ CREATE TABLE `cars` (
   `car_name` varchar(50) NOT NULL,
   `price` float NOT NULL,
   `manufacturer` varchar(50) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -46,12 +47,15 @@ CREATE TABLE `cars` (
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_model`, `plate_no`, `capacity`, `car_unit`, `car_color`, `car_type`, `car_name`, `price`, `manufacturer`, `created`) VALUES
-(7, 'SENTRA', 'fa sdfa sdfasdf', 'ssd', 'dd', 'asd', 'dd', 'asdasd', 1200, 'asdasd', '2018-12-19 03:27:06'),
-(9, 'WILDTRAC', 'ddddxxxx', 'a sda sd', 'a sda sd', 'asd asd', 'a sdasd ', 'asd asd ', 2000, 'a sdas dsad', '2019-01-06 01:03:57'),
-(10, 'RANGER', 'dasda', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'asdasd', 2500, '2500', '2019-01-06 01:40:44'),
-(11, 'sdf sdf', 'sdfsdfsd', 'fsdfsd', 'fsdf', 'sdfsdf', 'sdfsdf', 'sdfsdf', 232, 'sdfsdfsdf', '2019-01-06 01:40:55'),
-(12, 'xxx', 'xxx', 'xxxx', 'xxx', 'xxx', 'xxx', 'xxxx', 123123, 'xxxx', '2019-01-06 02:12:45');
+INSERT INTO `cars` (`car_id`, `car_model`, `plate_no`, `capacity`, `car_unit`, `car_color`, `car_type`, `car_name`, `price`, `manufacturer`, `image`, `created`) VALUES
+(7, 'SENTRAxxx', 'fa sdfa sdfasdf', 'ssd', 'dd', 'asd', 'dd', 'asdasd', 1200, 'asdasd', 'Screenshot_1.png', '2018-12-19 03:27:06'),
+(9, 'WILDTRAC', 'ddddxxxx', 'a sda sd', 'a sda sd', 'asd asd', 'a sdasd ', 'asd asd ', 2000, 'a sdas dsad', 'Screenshot_5.png', '2019-01-06 01:03:57'),
+(10, 'RANGER', 'dasda', 'asdasd', 'dasd', 'asdasd', 'asdasd', 'asdasd', 2500, '2500', NULL, '2019-01-06 01:40:44'),
+(11, 'sdf sdf', 'sdfsdfsd', 'fsdfsd', 'fsdf', 'sdfsdf', 'sdfsdf', 'sdfsdf', 232, 'sdfsdfsdf', NULL, '2019-01-06 01:40:55'),
+(12, 'xxx', 'xxx', 'xxxx', 'xxx', 'xxx', 'xxx', 'xxxx', 123123, 'xxxx', NULL, '2019-01-06 02:12:45'),
+(13, 'asdasd', 'dasd', 'asd', 'dasd', 'asd', 'asd', 'asd', 12312, 'asd', NULL, '2019-03-03 13:20:59'),
+(14, 'kjk', 'njnk', 'nkj', 'nj', 'nkjn', 'kj', 'njk', 12, 'n', 'giphy.webp', '2019-03-03 13:24:36'),
+(15, 'kjnkj', 'njkn', 'jn', 'kjn', 'jnk', 'jnk', 'jnkj', 12, 'jnkj', 'Screenshot_3.png', '2019-03-03 13:30:04');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,10 @@ INSERT INTO `car_trans` (`car_trans_id`, `trans_id`, `car_id`, `pick_up_date`, `
 (15, 17, 11, '2019-02-16', '08:00:00', '2019-02-17', '17:00:00', 232),
 (16, 18, 7, '2019-02-23', '08:00:00', '2019-02-24', '17:00:00', 1200),
 (17, 18, 9, '2019-02-23', '08:00:00', '2019-02-24', '17:00:00', 2000),
-(18, 19, 7, '2019-02-28', '08:00:00', '2019-02-28', '17:00:00', 1200);
+(18, 19, 7, '2019-02-28', '08:00:00', '2019-02-28', '17:00:00', 1200),
+(19, 20, 7, '2019-03-23', '08:00:00', '2019-03-24', '17:00:00', 1200),
+(20, 20, 9, '2019-03-23', '08:00:00', '2019-03-24', '17:00:00', 2000),
+(21, 21, 7, '2019-03-03', '08:00:00', '2019-03-03', '17:00:00', 1200);
 
 -- --------------------------------------------------------
 
@@ -132,7 +139,9 @@ INSERT INTO `transactions` (`trans_id`, `transaction_no`, `user_id`, `payment_in
 (16, '2019-8bfb113c', 1, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 6400, 'pending', '2019-02-18 01:46:18'),
 (17, '2019-2fac9e2c', 7, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 464, 'pending', '2019-02-18 02:04:48'),
 (18, '2019-52a0eca0', 1, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 6400, 'pending', '2019-02-18 02:11:20'),
-(19, '2019-323b9bcd', 7, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 1200, 'pending', '2019-02-20 01:17:52');
+(19, '2019-323b9bcd', 7, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 1200, 'pending', '2019-02-20 01:17:52'),
+(20, '2019-3b269e9f', 15, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 6400, 'pending', '2019-03-03 09:02:16'),
+(21, '2019-ebfe5e39', 14, '{\"payer_email\":\"loreto.gabawa.jr.sandbox@gmail.com\",\"payer_id\":\"BR386AM4VMX6L\",\"payer_status\":\"VERIFIED\",\"first_name\":\"Loreto\",\"last_name\":\"Gabawa Jr\",\"address_name\":\"Loreto Gabawa Jr\",\"address_street\":\"1 Main St\",\"address_city\":\"San Jose\",\"address_state\"', 1200, 'pending', '2019-03-03 14:24:56');
 
 -- --------------------------------------------------------
 
@@ -152,17 +161,17 @@ CREATE TABLE `users` (
   `address` varchar(255) NOT NULL,
   `usertype` varchar(15) NOT NULL,
   `date_created` datetime NOT NULL,
-  `active` int(1) NOT NULL
+  `active` int(1) NOT NULL,
+  `token` char(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `phone_no`, `address`, `usertype`, `date_created`, `active`) VALUES
-(1, 'admin', '1a1dc91c907325c69271ddf0c944bc72', 'xxx@gmail.com', 'Pancho', 'xxx', 'Pilato', 'jnkj', 'njnkjn', 'admin', '2018-11-10 16:05:39', 1),
-(4, 'gloria', '1a1dc91c907325c69271ddf0c944bc72', 'asdasd@asdasd.com', 'Gloria', 'X', 'Diaz', '09123456789', 'asdasd', 'customer', '2019-01-06 02:21:16', 1),
-(7, 'wang', '1a1dc91c907325c69271ddf0c944bc72', 'long@gmail.com', 'wang', 'd', 'long', '123', 'asdasd', 'customer', '2019-01-06 14:23:49', 1);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `phone_no`, `address`, `usertype`, `date_created`, `active`, `token`) VALUES
+(14, 'admin', '1a1dc91c907325c69271ddf0c944bc72', 'admin@car-rental.com', 'John', 'admin', 'Doe', '0923423423', 'test', 'admin', '2019-03-03 00:00:00', 1, 'r2dds'),
+(15, 'pancho', '1a1dc91c907325c69271ddf0c944bc72', 'panch@gmail.com', 'panchosss', 'xxxx', 'pilato', '0932123', 'leganes', 'customer', '2019-03-01 08:56:10', 1, '4cuhx');
 
 --
 -- Indexes for dumped tables
@@ -202,25 +211,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `car_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `car_trans`
 --
 ALTER TABLE `car_trans`
-  MODIFY `car_trans_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `car_trans_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `trans_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `trans_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

@@ -72,18 +72,23 @@
   <!-- <div class="container-scroller"> -->
     <!-- <div class="container-fluid page-body-wrapper full-page-wrapper auth-page"> -->
       <!-- <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one"> -->
+        <?php 
+          $users = $DB->query( "SELECT * FROM users WHERE user_id={$_SESSION[ AUTH_ID ]}" );
+          $user = $users->fetch_object();
+        ?>
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="card">
               <div class="card-body">
-            <h2 class="text-center mb-4">Register</h2>
+            <h2 class="text-center mb-4">Account Info</h2>
             <div class="auto-form-wrapper">
               <?php echo element( "message" ); ?>
               <form method="post">
-                <input type="hidden" name="action" value="register_account">              
+                <input type="hidden" name="action" value="save_account">  
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION[ AUTH_ID ] ?>">                          
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Username" name="username" value="<?php echo $user->username ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -93,7 +98,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="New Password" name="password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -110,10 +115,11 @@
                       </span>
                     </div>
                   </div>
+                  <small>Leave password blank if you don't want to change.</small>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="email" class="form-control" placeholder="Email Address" name="email">
+                    <input type="email" class="form-control" placeholder="Email Address" name="email" value="<?php echo $user->email ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -123,7 +129,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name" value="<?php echo $user->first_name ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -133,7 +139,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="middle_name" class="form-control" placeholder="Middle Name">
+                    <input type="text" name="middle_name" class="form-control" placeholder="Middle Name" value="<?php echo $user->middle_name ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -143,7 +149,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name"  value="<?php echo $user->last_name ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -153,7 +159,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="phone_no" class="form-control" placeholder="Phone Number">
+                    <input type="text" name="phone_no" class="form-control" placeholder="Phone Number" value="<?php echo $user->phone_no ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -163,7 +169,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="address" class="form-control" placeholder="Home Address">
+                    <input type="text" name="address" class="form-control" placeholder="Home Address" value="<?php echo $user->address ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>

@@ -67,6 +67,9 @@
 
           <?php if( $cars->num_rows ) : ?>
             <div class="row">
+              <div class="col-md-12">
+                <h2>Available Cars</h2>
+              </div>
             <?php while( $car = $cars->fetch_object() ) : ?>
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
                 <div class="card card-statistics">

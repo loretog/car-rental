@@ -1,6 +1,7 @@
 <?php
 	
 	$id = $_GET[ 'id' ];
+	$phone_no = $_GET[ 'phone_no' ];
 
 	if( $DB->query( "UPDATE transactions SET status = 'verified' WHERE trans_id=$id" ) ) {		
 	    $message = "Car Rental. We have verified your reservation, please come on time for the pick up date.";
@@ -14,7 +15,7 @@
 	      Please check the METHOD used (CURL or CURL-LESS). If you are using CURL then try CURL-LESS and vice versa.  
 	      Please CONTACT US for help. ";  
 	    } else if ($result == 0) {
-	      $_SESSION[ 'MESSAGE' ] =  "Message Sent!";
+	      $_SESSION[ 'MESSAGE' ] =  "Confirmed, customer has been notified!";
 	    } else { 
 	      $_SESSION[ 'MESSAGE' ] =  "Error Num ". $result . " was encountered!";
 	    }

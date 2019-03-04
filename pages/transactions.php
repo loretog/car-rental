@@ -6,16 +6,16 @@
   if( isset( $_SESSION[ AUTH_TYPE ] ) && $_SESSION[ AUTH_TYPE ] == "customer" ) {
     $WHERE = "WHERE T.user_id=" . $_SESSION[ AUTH_ID ];
   }
-	$transactions = $DB->query( "SELECT T.trans_id, T.transaction_no, T.payment_info, T.total_amount, T.created, T.status, U.username, U.first_name, U.last_name FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.user_id $WHERE ORDER BY T.created DESC" );
+  $transactions = $DB->query( "SELECT T.trans_id, T.transaction_no, T.payment_info, T.total_amount, T.created, T.status, U.user_id, U.username, U.first_name, U.last_name, U.phone_no FROM transactions AS T LEFT JOIN users AS U ON T.user_id=U.user_id $WHERE ORDER BY T.created DESC" );
   
 ?>
 
 <div class="row">
-	  <div class="col-md-12 grid-margin">
-	    <div class="card">
-	      <div class="card-body">
-	        <h1>Transactions</h1>          
-	        <div class="table-responsive">
+    <div class="col-md-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h1>Transactions</h1>          
+          <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -39,7 +39,7 @@
                   <td><?php echo $transaction->created ?></td>
                   <td>
                     <?php if( $transaction->status == "pending" ) : ?>
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?action=confirm_reservation&id=<?php echo $transaction->trans_id ?>">Confirm</a>
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?action=confirm_reservation&id=<?php echo $transaction->trans_id ?>&phone_no=<?php echo $transaction->phone_no ?>">Confirm</a>
                     <?php else: ?>
                       Verified
                     <?php endif; ?>
@@ -51,21 +51,21 @@
                 <?php endwhile; ?>
               </tbody>
               <?php } else { ?>
-            	<tbody>
-            		<tr>
-            			<td colspan="3">
-            				No records yet
-            			</td>
-            		</tr>
-            	</tbody>
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    No records yet
+                  </td>
+                </tr>
+              </tbody>
               <?php } ?>
               
             </table>
           </div>
 
-	      </div>
-	    </div>
-	  </div>
-	</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <?php element( 'footer' ); ?>

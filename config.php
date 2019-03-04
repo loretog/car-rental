@@ -7,6 +7,7 @@ define( 'DBUSER', 'root' );
 define( 'DBPASS', '' );
 define( 'DBNAME', 'car-rental' );
 define( 'CURRENCY', '&#8369;' );
+define( "API", "TR-ABEGA316590_3WAAN" );
 
 /*
 NOTE:

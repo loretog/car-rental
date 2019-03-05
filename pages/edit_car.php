@@ -77,6 +77,16 @@
                   </div>
                 </div>
                 <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Status</label>
+                  <div class="col-sm-9">                    
+                    <select name="status" class="form-control">
+                      <option value="available" <?php echo ( $car->status == 'available' ? 'selected' : '' ) ?>>Available</option>
+                      <option value="under repair" <?php echo ( $car->status == 'available' ? 'under repair' : '' ) ?>>Under Repair</option>
+                      <option value="unavailable" <?php echo ( $car->status == 'available' ? 'unavailable' : '' ) ?>>Unavailable</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
                   <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Image</label>
                   <div class="col-sm-9">
                     <input type="file" name="car_image" class="form-control" placeholder="Select an image for the car.">

@@ -37,7 +37,7 @@
                     <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL ?>/?page=edit_car&id=<?php echo $car->car_id ?>">Edit</a>
                     <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL ?>/?action=delete_car&id=<?php echo $car->car_id ?>">Delete</a>
                   </td>
-                  <td><?php echo $car->car_model ?></td>
+                  <td><?php echo $car->car_model ?> <small class="label label-primary"><?php echo $car->status ?></small></td>
                   <td><?php echo $car->plate_no ?></td>
                   <td><?php echo $car->capacity ?></td>
                   <td><?php echo $car->car_unit ?></td>

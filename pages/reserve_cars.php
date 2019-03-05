@@ -18,7 +18,7 @@
 
   $pickup_time = isset( $_POST[ 'pickup_time' ] ) ? $_POST[ 'pickup_time' ] : "08:00";
   $return_time = isset( $_POST[ 'return_time' ] ) ? $_POST[ 'return_time' ] : "17:00";
-  $q = "SELECT * FROM cars WHERE car_id NOT IN (SELECT C.car_id FROM car_trans AS CT RIGHT JOIN cars AS C ON CT.car_id=C.car_id WHERE (CT.pick_up_date BETWEEN '$pickup_date' AND '$return_date' ) OR (CT.return_date BETWEEN '$pickup_date' AND '$return_date'))";  
+  $q = "SELECT * FROM cars WHERE car_id NOT IN (SELECT C.car_id FROM car_trans AS CT RIGHT JOIN cars AS C ON CT.car_id=C.car_id WHERE (CT.pick_up_date BETWEEN '$pickup_date' AND '$return_date' ) OR (CT.return_date BETWEEN '$pickup_date' AND '$return_date')) AND status='available'";  
 	$cars = $DB->query( $q );
 ?>
 
